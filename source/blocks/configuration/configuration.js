@@ -85,7 +85,7 @@ export default () => {
   function fillCard(data) {
     const server = serverCard.cloneNode(true);
 
-    const coresTotal = calculateCores(data.cpu.count, data.cpu.cores)
+    const coresTotal = calculateCores(data.cpu.count, data.cpu.cores);
 
     server.querySelector(`.server__name`).textContent = data.name;
     server.querySelector(`.server__cpu-name`).textContent = data.cpu.name;
