@@ -182,7 +182,7 @@
       server.querySelector(".server__cpu-count").textContent = data.cpu.count >= 2 ? "".concat(data.cpu.count, " x") : null;
       server.querySelector(".server__cpu-cores").textContent = "".concat(coresTotal, " ").concat(window.declension(coresTotal, CORE_DECLENSIONS));
       server.querySelector(".server__ram").textContent = data.ram;
-      server.querySelector(".server__disk-count").textContent = "".concat(data.disk.count, " x");
+      server.querySelector(".server__disk-count").textContent = data.disk.count >= 2 ? "".concat(data.disk.count, " x") : null;
       server.querySelector(".server__disk-value").textContent = data.disk.value;
       server.querySelector(".server__disk-type").textContent = data.disk.type;
       server.querySelector(".server__gpu").textContent = data.gpu;
