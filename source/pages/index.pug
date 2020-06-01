@@ -42,11 +42,10 @@ html(lang="ru")
             div.configuration__status
               img.loader.configuration__loader(src="img/loader.svg" width="68" height="68" alt="")
 
-      template(id="message")
-        p.message.configuration__message
-          | Ошибка соединения
-      include ../blocks/server/server
-
     +footer()
+    template(id="message")
+      p.message
+        | Ошибка соединения
+    include ../blocks/server/server
     script(src="js/vendor.js")
     script(src="js/main.js")

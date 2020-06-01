@@ -143,6 +143,7 @@
         currentMessage.textContent = text;
       } else {
         var newMessage = message.cloneNode(true);
+        newMessage.classList.add("configuration__message");
         newMessage.textContent = text;
         configurationStatus.append(newMessage);
       }

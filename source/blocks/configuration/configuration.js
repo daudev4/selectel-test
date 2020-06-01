@@ -49,6 +49,7 @@ export default () => {
     } else {
       const newMessage = message.cloneNode(true);
 
+      newMessage.classList.add(`configuration__message`);
       newMessage.textContent = text;
       configurationStatus.append(newMessage);
     }
