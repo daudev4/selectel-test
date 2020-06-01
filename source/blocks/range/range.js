@@ -19,12 +19,15 @@ export default () => {
     root.style.setProperty(`--fill-percent`, `${fillPercent}%`);
   }
 
-  fillRange(rangeInput);
-
-  rangeInput.addEventListener(`change`, (evt) => {
+  function onRangeInputChange(evt) {
     fillRange(evt.target);
 
     rangeOutputUnit.textContent = window.declension(evt.target.value, rangeOutputUnits);
     rangeOutputValue.textContent = evt.target.value;
-  });
+  }
+
+  fillRange(rangeInput);
+
+  rangeInput.addEventListener(`change`, onRangeInputChange);
+  rangeInput.addEventListener(`input`, onRangeInputChange);
 };
