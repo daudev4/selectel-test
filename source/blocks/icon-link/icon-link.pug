@@ -1,0 +1,17 @@
+include ../svg/svg
+
+mixin icon-link(text, icon, mods)
+  -
+    let allMods = '';
+
+    if(typeof(mods) !== 'undefined' && mods) {
+      const modsList = mods.split(',');
+      for (let i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' icon-link--' + modsList[i].trim();
+      }
+    }
+
+  a.icon-link(class=allMods)&attributes(attributes)
+    if icon
+      +svg(icon.name, icon.width, icon.height).icon-link__icon
+    span.icon-link__text= text

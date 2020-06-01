@@ -1,0 +1,28 @@
+.logo
+  display: block
+  width: 52px
+  height: 11px
+
+  transition()
+
+  &[href]:hover,
+  &[href]:focus
+    opacity: 0.6
+
+  &[href]:active
+    opacity: 0.3
+
+  @media (min-width: $min-width--tablet)
+    width: 82px
+    height: 18px
+
+  @media (min-width: $min-width--desktop)
+    width: 112px
+    height: 24px
+
+.logo__img
+  width: 100%
+  height: auto
+
+.logo__text
+  hidden()

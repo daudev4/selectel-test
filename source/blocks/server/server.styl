@@ -1,0 +1,143 @@
+.server
+  padding: 16px
+
+  font($font-family--primary, 400, $font-size--xs, $line-height, $letter-spacing)
+
+  border-radius: 7px
+  border: 1px solid $text-color--secondary
+
+  animation: fade-in ease-in 0.5s
+
+  & + &
+    margin-top: 16px
+
+  @media (min-width: $min-width--tablet)
+    padding: 26px
+    padding-left: 10px
+    font-size: $font-size--s
+
+  @media (min-width: $min-width--desktop)
+    padding-top: 26px
+    padding-right: 20px
+    padding-bottom: 24px
+    padding-left: 14px
+
+    & + &
+      margin-top: 12px
+
+
+.server__name
+  margin: 0
+  margin-bottom: 14px
+
+  font-weight: 700
+
+  @media (min-width: $min-width--tablet)
+    margin-bottom: 10px
+
+    font-size: $font-size--m
+    line-height: $line-height
+
+  @media (min-width: $min-width--desktop)
+    margin-bottom: 18px
+
+    font-size: $font-size--s
+
+.server__content
+  display: flex
+  flex-wrap: wrap
+  align-items: flex-start
+
+.server__parameters-list
+  list-reset()
+  display: flex
+  flex-wrap: wrap
+  align-items: flex-start
+  margin-right: auto
+
+  @media (min-width: $min-width--tablet)
+    margin-top: 8px
+
+  @media (min-width: $min-width--desktop)
+    margin-top: 0
+
+.server__parameter
+  margin-bottom: 22px
+
+  &:last-of-type
+    margin-right: 0
+    margin-bottom: 30px
+
+  @media (min-width: $min-width--tablet)
+    margin-bottom: 0
+
+.server__cpu
+  max-width: 225px
+  margin-right: 20px
+
+  @media (min-width: $min-width--tablet)
+    max-width: 130px
+    margin-right: 26px
+
+    font-size: $font-size--m
+    line-height: $line-height
+
+  @media (min-width: $min-width--desktop)
+    max-width: 114px
+    margin-right: 96px
+
+    font-size: $font-size--s
+
+.server__ram
+  width: 100px
+  margin-right: 42px
+
+  @media (min-width: $min-width--desktop)
+    width: 128px
+    margin-right: 54px
+
+.server__disk
+  width: 115px
+  margin-right: 42px
+
+.server__gpu
+  width: 115px
+
+.server__purchase
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.server__price
+  margin: 0
+  margin-bottom: 16px
+
+  font-weight: 700
+
+  @media (min-width: $min-width--tablet)
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin-bottom: 8px
+
+  @media (min-width: $min-width--desktop)
+    display: block
+    margin-bottom: 12px
+
+.server__button
+  min-width: 102px
+
+  @media (min-width: $min-width--tablet)
+    min-width: 68px
+
+  @media (min-width: $min-width--desktop)
+    min-width: 76px
+
+@keyframes fade-in
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }

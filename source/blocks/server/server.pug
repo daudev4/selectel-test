@@ -1,0 +1,37 @@
+template(id="server-card")
+  article.server
+    h4.server__name D8
+    div.server__content
+      ul.server__parameters-list
+        li.server__parameter.server__cpu
+          span.server__cpu-count 2 x
+          |
+          |
+          span.server__cpu-name Intel Xeon E-2236 3.4 ГГц
+
+          | ,
+          |
+          span.server__cpu-cores 6 ядер
+
+        li.server__parameter.server__ram
+          | 32 ГБ RAM
+        li.server__parameter.server__disk
+          span.server__disk-count
+          |
+          |
+          span.server__disk-value 460
+          |
+          | ГБ
+          |
+          span.server__disk-type SSD
+        li.server__parameter.server__gpu
+          | 4 × GTX 1080
+      div.server__purchase
+        p.server__price
+          span.server__price-value 16 000
+          span.server__price-unit
+            |
+            |
+            | ₽/месяц
+        a.button.server__button(href="https://selectel.ru/")
+          | Заказать

@@ -1,0 +1,66 @@
+{
+  "name": "selectel-test",
+  "version": "1.0.0",
+  "description": "Тестовое задание Selectel",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/register": "^7.9.0",
+    "@htmlacademy/editorconfig-cli": "^1.0.0",
+    "autoprefixer": "^9.7.6",
+    "browser-sync": "^2.26.3",
+    "del": "^4.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-htmlacademy": "^0.5.2",
+    "eslint-plugin-import": "^2.20.2",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-cheerio": "^1.0.0",
+    "gulp-cheerio-clean-svg": "github:Hiswe/gulp-cheerio-clean-svg",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-plumber": "1.2.x",
+    "gulp-postcss": "8.0.x",
+    "gulp-pretty-html": "^2.0.10",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-stylus": "^2.7.0",
+    "gulp-svgstore": "^7.0.1",
+    "gulp-webp": "^4.0.1",
+    "rollup": "^1.32.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-uglify": "^6.0.4"
+  },
+  "scripts": {
+    "editorconfig": "editorconfig-cli",
+    "test": "npm run editorconfig && eslint source/js/",
+    "build": "gulp build",
+    "start": "gulp start",
+    "images": "gulp images",
+    "webp": "gulp webp",
+    "sprite": "gulp sprite"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "IE 11",
+    "Firefox ESR"
+  ],
+  "editorconfig-cli": [
+    "*.json",
+    "*.js",
+    "source/*.html",
+    "source/js/**/*.js",
+    "source/img/**/*.svg",
+    "source/stylus/**/*.{styl}"
+  ],
+  "engines": {
+    "node": "^8.15"
+  },
+  "dependencies": {
+    "picturefill": "^3.0.3",
+    "svg4everybody": "^2.1.9"
+  }
+}

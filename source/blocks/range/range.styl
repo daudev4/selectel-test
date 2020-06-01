@@ -1,0 +1,146 @@
+:root
+  --fill-percent: 50%
+
+$track-color = $gray--light
+$track-color--filled = $blue
+$thumb-color = $white
+$thumb-radius = 50%
+$thumb-height = 12px
+$thumb-width = 12px
+$thumb-shadow-size = 1px
+$thumb-shadow-blur = 3px
+$thumb-shadow-color = rgba($black, 0.18)
+$thumb-border-width = 2px
+$thumb-border-color = $white
+$track-height = 2px
+$track-radius = 3px
+
+track()
+  height: $track-height
+
+  transition()
+
+track-fill()
+  background:
+    linear-gradient(90deg, $track-color--filled var(--fill-percent), $track-color var(--fill-percent))
+  background-repeat: no-repeat
+  background-position: 0 0
+  background-size: 100% 100%
+
+thumb()
+  position: relative
+  z-index: 3
+
+  box-sizing: border-box
+  flex-shrink: 0
+  height: $thumb-height
+  width: $thumb-width
+
+  transition()
+  cursor: pointer
+  appearance: none
+  background: $thumb-color
+  border-radius: $thumb-radius
+  border: $thumb-border-width solid $thumb-border-color
+  box-shadow:
+    0 $thumb-shadow-size $thumb-shadow-blur 0 $thumb-shadow-color
+
+  &:hover
+    transform: scale(1.25)
+
+.range
+  width: 100%
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: flex-start
+
+  font($font-family--primary, 400, $font-size--xs, $line-height, $letter-spacing)
+  color: $text-color--primary
+
+.range__output
+  margin: 0
+  margin-top: 3px
+
+  @media (min-width: $min-width--tablet)
+    margin-top: 5px
+    margin-left: 3px
+
+    font-size: $font-size--s
+
+  @media (min-width: $min-width--desktop)
+    font-size: $font-size--xs
+
+.range__min
+.range__max
+  margin-top: -3px
+  color: $gray
+
+  @media (min-width: $min-width--desktop)
+    margin-top: -5px
+
+.range__input
+  width: 100%
+  height: 16px
+  display: flex
+  align-items: center
+  margin: 0
+  padding: 0
+  appearance: none
+  overflow: visible
+
+  &::-ms-tooltip
+    display: none
+
+  &::-moz-focus-outer
+    border: 0
+
+  &::-webkit-slider-runnable-track
+    track()
+    track-fill()
+    border-radius: $track-radius
+
+  &::-webkit-slider-thumb
+    thumb()
+    margin-top: ($track-height / 2 - $thumb-height / 2)
+
+  &::-moz-range-track
+    track()
+    track-fill()
+    border-radius: $track-radius
+    height: $track-height
+
+  &::-moz-range-thumb
+    thumb()
+
+  &::-ms-track
+    track()
+    background: transparent
+    border-color: transparent
+    border-width: (($thumb-height + 2px) / 2) 0
+    color: transparent
+
+  &::-ms-fill-lower
+    background: $track-color--filled
+    border-radius: ($track-radius * 2)
+
+  &::-ms-fill-upper
+    background: $track-color
+    border-radius: ($track-radius * 2)
+
+  &::-ms-thumb
+    thumb()
+    cursor: default
+    // margin-top: ($track-height / 4)
+
+
+  &:focus
+    outline: none;
+
+    &::-webkit-slider-runnable-track,
+    &::-moz-range-track,
+    &::-ms-fill-lower
+      background: $gray--light
+
+  &:disabled
+    background-color: transparent

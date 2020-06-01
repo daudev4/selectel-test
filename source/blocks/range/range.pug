@@ -1,0 +1,20 @@
+mixin range(id, min, max, step, value, unit, mods)
+  -
+    let allMods = '';
+
+    if(typeof(mods) !== 'undefined' && mods) {
+      const modsList = mods.split(',');
+      for (let i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' range--' + modsList[i].trim();
+      }
+    }
+
+  div.range(class=allmods)&attributes(attributes)
+    input.range__input(id=id type="range" min=min max=max step=step value=value)
+    span.range__min= min
+    p.range__output
+      output.range__output-value= value
+      |
+      |
+      span.range__output-unit= unit
+    span.range__max= max

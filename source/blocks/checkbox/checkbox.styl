@@ -1,0 +1,67 @@
+.checkbox__input
+  hidden()
+  color: $text-color--primary;
+
+  &:focus + .checkbox__label
+    color: $text-color--accent
+
+  &:checked + .checkbox__label
+    &::before
+      border-color: $text-color--accent
+
+    .checkbox__mark
+      opacity: 1
+      fill: $text-color--accent
+
+.checkbox__label
+  position: relative
+
+  display: block
+  padding-bottom: 2px
+  padding-left: 27px
+
+  line-height: 28px
+  color: $text-color--primary
+
+  transition()
+  cursor: pointer
+
+  &::before
+    content: ""
+
+    position: absolute
+    top: 50%
+    left: 0
+
+    width: 18px
+    height: 18px
+    margin-right: 12px
+
+    transition()
+    transform: translateY(-50%)
+    border: 1.5px solid $text-color--primary
+    border-radius: 50%
+
+  &:hover,
+  &:focus
+    &::before
+      border-color: $text-color--accent
+
+  @media (min-width: $min-width--tablet)
+    padding-bottom: 0
+
+  @media (min-width: $min-width--desktop)
+    padding-left: 30px
+
+.checkbox__mark
+  position: absolute
+  top: 50%
+  left: 4px
+
+  opacity: 0;
+  width: 10px
+  height: 7px
+
+  transition()
+  fill: $text-color--primary
+  transform: translateY(-50%)

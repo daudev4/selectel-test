@@ -1,0 +1,52 @@
+include ../blocks/head/head
+include ../blocks/header/header
+include ../blocks/footer/footer
+include ../blocks/picture/picture
+include ../blocks/range/range
+include ../blocks/checkbox/checkbox
+
+
+doctype html
+html(lang="ru")
+  +head('Тестовое задание Selectel')
+  body
+    +header()
+    main
+      h1.visually-hidden Выделенные сервера от Selectel
+      section.banner
+        div.banner__inner
+          div.banner__content
+            h2.heading.banner__heading
+              | Надежные серверы для проектов любой сложности
+            p.banner__text
+              | Выделенный сервер — это аренда сервера
+              | под&nbsp;задачи вашего проекта с возможностью
+              | свободно распоряжаться ресурсами
+              | машины и&nbsp;установки любого программного обеспечения.
+            button.button.button--filled.banner__button(type="button") Готовые серверы
+          div.banner__img-container
+            +picture('server', 'png', '209', '175', 'Изображение сервера').banner__img
+      section.configuration
+        div.configuration__inner
+          h2.heading.configuration__heading Доступные конфигурации
+          form.form.configuration__form(action="#" method="post")
+            div.form__item.form__item--range
+              label.form__item-label(for="core-amount") vCPU
+              +range('core-amount', 2, 12, 2, 6, 'ядер').formt__item-input
+            div.form__checkbox-group
+              +checkbox('checkbox-gpu', 'GPU').form__item.form__item--checkbox
+              +checkbox('checkbox-raid', 'RAID').form__item.form__item--checkbox
+              +checkbox('checkbox-ssd', 'SSD').form__item.form__item--checkbox
+          section.configuration__group
+            h3.configuration__group-title Performance Line
+            div.configuration__status
+              img.loader.configuration__loader(src="img/loader.svg" width="68" height="68" alt="")
+
+      template(id="message")
+        p.message.configuration__message
+          | Ошибка соединения
+      include ../blocks/server/server
+
+    +footer()
+    script(src="js/vendor.js")
+    script(src="js/main.js")

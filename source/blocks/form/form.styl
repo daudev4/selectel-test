@@ -1,0 +1,83 @@
+.form
+  @media (min-width: $min-width--tablet)
+    display: flex
+    justify-content: flex-start
+    align-items: flex-start
+    padding-right: 18px
+
+  @media (min-width: $min-width--desktop)
+    padding-right: 12px
+
+.form__checkbox-group
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
+  align-items: flex-start
+  max-height: 200px
+  list-reset()
+
+  @media (min-width: $min-width--tablet)
+    flex-grow: 1
+    flex-direction: row
+    min-width: 305px
+
+.form__item
+  font($font-family--primary, 400, $font-size--xs, $line-height, $letter-spacing)
+
+  &--range
+    display: flex
+    align-items: flex-start
+    width: 100%
+    max-width: 348px
+    margin-bottom: 22px
+
+    .form__item-label
+      min-width: 52px
+      margin-right: 15px
+      margin-bottom: 2px
+
+    .form__item-input
+      margin-right: 8px
+
+  &--checkbox
+    margin-bottom: 10px
+
+    &:last-of-type
+      margin-bottom: 0
+
+  @media (min-width: $min-width--tablet)
+    font-size: $font-size--m
+
+    &--range
+      margin-top: 6px
+      margin-right: 37px
+      margin-bottom: 0
+
+      font-size: $font-size--l
+
+      .form__item-label
+        margin-right: 30px
+        margin-bottom: 0
+
+      .form__item-input
+        max-width: 246px
+        margin-top: 4px
+        margin-right: 0
+
+    &--checkbox
+      min-width: 75px
+      margin-right: 40px
+      margin-bottom: 10px
+
+      &:last-of-type
+        margin-right: 0
+
+  @media (min-width: $min-width--desktop)
+    &--range
+      max-width: 368px
+      margin-top: 2px
+      margin-right: 48px
+
+    &--checkbox
+      min-width: 100px
+      margin-right: 86px

@@ -1,0 +1,65 @@
+container()
+  min-width: $min-width--mobile
+  margin: 0 auto
+  padding: 0 20px
+
+  @media (min-width: $min-width--tablet)
+    min-width: $min-width--tablet
+    padding: 0 30px
+
+  @media (min-width: $min-width--desktop)
+    min-width: $min-width--desktop
+    max-width: $max-width--desktop
+    padding: 0 150px
+
+hidden()
+  position: absolute
+  width: 1px
+  height: 1px
+  margin: -1px
+  padding: 0
+  white-space: nowrap
+  border: 0
+  clip: rect(0 0 0 0)
+  overflow: hidden
+
+list-reset()
+  margin: 0
+  padding: 0
+
+  list-style: none
+
+button-reset()
+  padding: 0
+  color: inherit
+
+  border: none
+
+transition($property = all, $duration = 0.3s, $function = ease-in-out, $delay = 0s)
+  transition: $property $duration $function $delay
+
+link-effects($hover-color = $text-color--primary, $active-color = $text-color--secondary, $active-opacity = 0.6,)
+  &[href]:hover
+  &[href]:focus
+    color: $hover-color
+
+    svg
+      fill: $hover-color
+
+  &[href]:active
+    color: $active-color
+    opacity: $active-opacity
+
+    svg
+      fill: $active-color
+
+
+font($family, $weight, $size, $height, $spacing)
+  font-family: $family
+  font-weight: $weight
+  font-size: $size
+  line-height: $height
+  letter-spacing: $spacing
+
+font--default($family = $font-family--primary, $weight = 400, $size = $font-size--m, $height = $line-height, $spacing = $letter-spacing)
+  font($family, $weight, $size, $height, $spacing)

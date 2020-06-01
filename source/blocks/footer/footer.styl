@@ -1,0 +1,118 @@
+.footer
+  min-height: 144px
+  padding: 24px 0
+
+  font($font-family--secondary, 500, $font-size--xs, $line-height, $letter-spacing--large)
+  color: $text-color--secondary
+
+  background-color: $background-color--primary;
+  box-shadow: 0px -1px 5px rgba($black, 0.1)
+
+  @media (min-width: $min-width--tablet)
+    min-height: 164px
+    padding: 30px 0
+
+  @media (min-width: $min-width--desktop)
+    min-height: 172px
+    padding: 37px 0
+
+.footer__inner
+  container()
+  display: flex
+  justify-content: space-between
+
+.footer__panel
+  max-width: 20%
+  margin-right: 8.6%
+  padding-top: 2px
+
+  @media (min-width: $min-width--tablet)
+    margin-right: 33px
+
+  @media (min-width: $min-width--tablet)
+    margin-right: 48px
+
+.footer__social-list
+  list-reset()
+  display: flex
+  flex-wrap: wrap;
+  margin-left: 3px
+  margin-top: 20px
+
+  @media (min-width: $min-width--tablet)
+    margin-top: 25px
+
+  @media (min-width: $min-width--desktop)
+    margin-top: 30px
+
+.footer__social-item
+  margin-right: 10px
+  margin-bottom: 13px
+
+  &:nth-of-type(4n)
+    margin-right: 0
+
+  @media (min-width: $min-width--tablet)
+    margin-right: 16px
+
+  @media (min-width: $min-width--desktop)
+    margin-right: 20px
+
+.footer__nav
+  flex-grow: 1
+  max-width: calc(80% - 24px)
+
+  @media (min-width: $min-width--tablet)
+    max-width: 80%
+
+.footer__nav-list
+  list-reset()
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
+  align-items: flex-start
+  align-content: flex-start
+  height: 98px
+
+  overflow-x: hidden
+
+  @media (min-width: $min-width--tablet)
+    height: 70px
+
+.footer__nav-item
+  margin-bottom: 12px
+
+  &:nth-of-type(n+5)
+    margin-left: 20px
+
+  &:nth-of-type(4n)
+    margin-bottom: 0
+
+  @media (min-width: $min-width--tablet)
+    min-width: 117px
+    margin-bottom: 20px
+
+    &:nth-of-type(n+3)
+      margin-left: 30px
+
+    &:nth-of-type(2n)
+      margin-bottom: 0
+
+  @media (min-width: $min-width--desktop)
+    min-width: 128px
+    margin-bottom: 24px
+
+    &:nth-of-type(n+3)
+      margin-left: 58px
+
+.footer__nav-link
+  display: block
+
+  font($font-family--secondary, 500, $font-size--xs, $line-height, $letter-spacing--large)
+  color: $text-color--secondary
+
+  transition()
+  link-effects()
+
+  @media (min-width: $min-width--desktop)
+    font-size: $font-size--s

@@ -1,0 +1,89 @@
+.banner
+  padding-top: 32px
+
+  font--default()
+  color: $text-color--primary
+
+  background-color: $background-color--primary
+
+  @media (min-width: $min-width--tablet)
+    padding-top: 30px
+
+  @media (min-width: $min-width--desktop)
+    padding-top: 26px
+
+.banner__inner
+  container()
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+.banner__content
+  max-width: 420px
+
+  @media (min-width: $min-width--tablet)
+    max-width: 58%
+    padding-top: 28px
+
+  @media (min-width: $min-width--desktop)
+    max-width: 60%
+    padding-top: 44px
+
+.banner__heading
+  max-width: 280px
+  margin-bottom: 16px
+
+  text-align: left
+
+  @media (min-width: $min-width--tablet)
+    max-width: 100%
+
+  @media (min-width: $min-width--desktop)
+    margin-bottom: 25px
+
+.banner__text
+  margin: 0
+  margin-bottom: 25px
+
+  font-size: $font-size--xs
+  line-height: $line-height
+
+  @media (min-width: $min-width--tablet)
+    font-size: $font-size--m
+
+  @media (min-width: $min-width--desktop)
+    font-size: $font-size--l
+
+.banner__button
+  min-width: 110px
+
+  @media (min-width: $min-width--tablet)
+    min-width: 160px
+    min-height: 32px
+    padding-bottom: 7px
+
+    font-size: $font-size--s
+
+.banner__img-container
+  flex-shrink: 0
+  width: 209px
+  margin-top: -26px
+  margin-right: 8px
+  margin-left: auto
+
+  transition()
+
+  @media (min-width: $min-width--tablet)
+    flex-grow: 1
+    width: 293px
+    margin: 0
+    margin-right: 4px
+
+
+  @media (min-width: $min-width--desktop)
+    flex-grow: 0
+    width: 380px
+    margin-right: -40px
+
+.banner__img
+  width: 100%

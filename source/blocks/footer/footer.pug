@@ -1,0 +1,53 @@
+include ../logo/logo
+include ../icon-link/icon-link
+
+mixin footer(mods)
+  -
+    let allMods = '';
+
+    if(typeof(mods) !== 'undefined' && mods) {
+      const modsList = mods.split(',');
+      for (let i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' footer--' + modsList[i].trim();
+      }
+    }
+
+  header.footer(class=allMods)&attributes(attributes)
+    div.footer__inner
+      div.footer__panel
+        +logo()(href="https://selectel.ru/" target="_blank").footer__logo
+        ul.footer__social-list
+          li.footer__social-item
+            +icon-link('Сообщество Selectel в Вконтакте', {name:'icon-social--vk', width: '16', height:'16'}, 'social')(href="https://vk.com/selectel" target="_blank")
+          li.footer__social-item
+            +icon-link('Аккаунт Selectel в Twitter', {name:'icon-social--tw', width: '16', height:'16'}, 'social')(href="https://twitter.com/selectel" target="_blank")
+          li.footer__social-item
+            +icon-link('Сообщество Selectel в Facebook', {name:'icon-social--fb', width: '16', height:'16'}, 'social')(href="https://www.facebook.com/selectel/" target="_blank")
+          li.footer__social-item
+            +icon-link('Аккаунт Selectel в Instagram', {name:'icon-social--ig', width: '16', height:'16'}, 'social')(href="https://www.instagram.com/selectel.ru/" target="_blank")
+      nav.footer__nav
+        ul.footer__nav-list
+          li.footer__nav-item
+            a.footer__nav-link(href="https://selectel.ru/" target="_blank")
+              | Серверы
+          li.footer__nav-item
+            a.footer__nav-link(href="https://selectel.ru/" target="_blank")
+              | Решения
+          li.footer__nav-item
+            a.footer__nav-link(href="https://selectel.ru/" target="_blank")
+              | Облако
+          li.footer__nav-item
+            a.footer__nav-link(href="https://selectel.ru/" target="_blank")
+              | Оборудование
+          li.footer__nav-item
+            a.footer__nav-link(href="https://selectel.ru/" target="_blank")
+              | Блог
+          li.footer__nav-item
+            a.footer__nav-link(href="https://selectel.ru/" target="_blank")
+              | Дата-центры
+          li.footer__nav-item
+            a.footer__nav-link(href="https://selectel.ru/" target="_blank")
+              | Офисы
+          li.footer__nav-item
+            a.footer__nav-link(href="https://selectel.ru/" target="_blank")
+              | О компании

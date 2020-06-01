@@ -1,0 +1,63 @@
+.button
+  button-reset()
+  transition()
+
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  min-height: 24px
+  padding-top: 5px
+  padding-right: 5px
+  padding-bottom: 5px
+  padding-left: 5px
+
+  font($font-family--secondary, 500, $font-size--xxs, $line-height, $letter-spacing--large)
+  text-decoration: none
+  text-align: center
+  color: $text-color--accent
+
+  outline: none;
+  border: 1px solid $background-color--accent
+  border-radius: 6px
+  background-color: transparent
+
+  user-select: none
+  cursor: pointer
+
+  &:hover,
+  &:focus
+    color: $text-color--additional
+
+    border-color: $blue--light
+    background-color: $blue--light
+
+  &:active
+    border-color: $blue--lighten
+    background-color: $blue--lighten
+
+  &:disabled
+    color: $gray
+
+    border-color: $gray
+    background-color: transparent
+
+  &--filled
+    min-height: 26px
+    color: $text-color--additional
+
+    background-color: $background-color--accent
+
+    &:hover,
+    &:focus
+      border-color: $blue--dark
+      background-color: $blue--dark
+
+    &:active
+      border-color: $blue--light
+      background-color: $blue--light
+
+    &:disabled
+      color: $text-color--additional
+
+      background-color: $gray
+      border-color: $gray

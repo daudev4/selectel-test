@@ -1,0 +1,76 @@
+.icon-link
+  display: flex
+  align-items: center
+
+  font($font-family--primary, 400, $font-size--xs, $line-height, $letter-spacing)
+  line-height: 20px;
+  color: $text-color--secondary
+
+  transition()
+  link-effects()
+
+  &--social
+    .icon-link__icon
+      width: 16px
+      height: 16px
+
+    .icon-link__text
+      hidden()
+
+  &--contact
+    .icon-link__text
+      white-space: nowrap
+
+      @media (max-width: $min-width--desktop - 1px)
+        hidden()
+
+  &--phone
+    .icon-link__icon
+      width: 8px
+      height: 9px
+  &--email
+    .icon-link__icon
+      width: 9px
+      height: 7px
+  &--telegram
+    .icon-link__icon
+      width: 8px
+      height: 8px
+
+  @media (min-width: $min-width--tablet)
+    &--phone
+      .icon-link__icon
+        width: 12px
+        height: 13px
+    &--email
+      .icon-link__icon
+        width: 16px
+        height: 12px
+    &--telegram
+      .icon-link__icon
+        width: 12px
+        height: 12px
+
+  @media (min-width: $min-width--desktop)
+    &--social
+      .icon-link__icon
+        width: 22px
+        height: 22px
+
+    &--phone
+      .icon-link__icon
+        margin-right: 4px
+    &--email
+      .icon-link__icon
+        margin-right: 10px
+    &--telegram
+      .icon-link__icon
+        margin-right: 8px
+
+.icon-link__icon
+  flex-shrink: 0
+  display: block
+
+  fill: $text-color--secondary
+
+  transition()

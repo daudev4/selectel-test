@@ -1,0 +1,17 @@
+include ../svg/svg
+
+mixin checkbox(id, label, mods)
+  -
+    let allMods = '';
+
+    if(typeof(mods) !== 'undefined' && mods) {
+      const modsList = mods.split(',');
+      for (let i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' checkbox--' + modsList[i].trim();
+      }
+    }
+
+  div.checkbox(class=allmods)&attributes(attributes)
+    input.checkbox__input(id=id type="checkbox")
+    label.checkbox__label(for=id)= label
+      +svg('icon-check-mark').checkbox__mark

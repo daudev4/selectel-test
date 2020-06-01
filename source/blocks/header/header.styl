@@ -1,0 +1,43 @@
+.header
+  min-height: 32px
+  padding-top: 11px
+  padding-bottom: 10px
+
+  @media (min-width: $min-width--tablet)
+    min-height: 56px
+    padding: 16px 0
+
+.header__inner
+  container()
+  display: flex
+  align-items: center
+
+.header__logo
+  flex-shrink: 0;
+
+.header__contacts-list
+  list-reset()
+  display: flex
+  justify-content: flex-end
+  align-items: center
+  flex-wrap: wrap
+  margin-left: auto
+
+.header__contacts-item
+  margin-left: 16px
+  padding-bottom: 2px
+
+  &:first-of-type
+    margin-left: 0
+
+  @media (min-width: $min-width--tablet)
+    margin-left: 38px
+    padding-top: 2px
+    padding-bottom: 0
+
+  @media (min-width: $min-width--desktop)
+    min-width: 155px
+    margin-left: 32px
+    padding: 2px 0
+
+

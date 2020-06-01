@@ -1,0 +1,24 @@
+include ../logo/logo
+include ../icon-link/icon-link
+
+mixin header(mods)
+  -
+    let allMods = '';
+
+    if(typeof(mods) !== 'undefined' && mods) {
+      const modsList = mods.split(',');
+      for (let i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' header--' + modsList[i].trim();
+      }
+    }
+
+  header.header(class=allMods)&attributes(attributes)
+    div.header__inner
+      +logo()(href="https://selectel.ru/" target="_blank").header__logo
+      ul.header__contacts-list
+        li.header__contacts-item
+          +icon-link('+7 (800) 555-06-75', {name:'icon-phone', width:'12', height:'13'},'contact, phone')(href="tel:+7-800-555-06-75")
+        li.header__contacts-item
+          +icon-link('Написать в почту', {name:'icon-email', width:'16', height:'12'}, 'contact, email')(href="mailto:sales@selectel.ru")
+        li.header__contacts-item
+          +icon-link('Написать в Telegram', {name:'icon-telegram', width:'12', height:'12'}, 'contact, telegram')(href="https://t.me/Selectel" target="_blank")

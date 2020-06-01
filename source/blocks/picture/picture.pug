@@ -1,0 +1,9 @@
+mixin picture(name, format, width, height, alt)
+  picture
+    source(type="image/webp" media="(min-width: 1200px)" srcset=`./img/${name}--desktop@1x.webp 1x, ./img/${name}--desktop@2x.webp 2x`)
+    source(type="image/webp" media="(min-width: 767px)" srcset=`./img/${name}--tablet@1x.webp 1x, ./img/${name}--tablet@2x.webp 2x`)
+    source(type="image/webp" srcset=`./img/${name}--mobile@1x.webp 1x, ./img/${name}--mobile@2x.webp 2x`)
+
+    source(media="(min-width: 1200px)" srcset=`./img/${name}--desktop@1x.${format} 1x, ./img/${name}--desktop@2x.${format} 2x`)
+    source(media="(min-width: 767px)" srcset=`./img/${name}--tablet@1x.${format} 1x, ./img/${name}--tablet@2x.${format} 2x`)
+    img&attributes(attributes)(srcset=`img/${name}--mobile@1x.${format} 1x, img/${name}=-mobile@2x.${format} 2x` src=`img/${name}@1x.${format}` width=width height=height alt=alt)
