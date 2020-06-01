@@ -10,10 +10,9 @@ export default () => {
       : `GET`;
     const xhr = new XMLHttpRequest();
 
-    xhr.responseType = `json`;
     xhr.addEventListener(`load`, function () {
       if (xhr.status === HTTP_STATUS_OK) {
-        onSuccess(xhr.response);
+        onSuccess(JSON.parse(xhr.responseText));
       } else {
         onError(MESSAGE_CONNECTION_ERROR);
         // onError(`Статус ответа: ${xhr.status} ${xhr.statusText}`);
@@ -26,9 +25,8 @@ export default () => {
       onError(`Запрос не успел выполниться за ${xhr.timeout} мс`);
     });
 
-    xhr.timeout = XHR_TIMEOUT;
-
     xhr.open(httpMethod, url);
+    xhr.timeout = XHR_TIMEOUT;
     xhr.send(data);
   };
 

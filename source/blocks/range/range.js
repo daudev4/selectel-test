@@ -21,10 +21,10 @@ export default () => {
 
   fillRange(rangeInput);
 
-  rangeInput.addEventListener(`input`, (evt) => {
+  rangeInput.addEventListener(`change`, (evt) => {
     fillRange(evt.target);
 
     rangeOutputUnit.textContent = window.declension(evt.target.value, rangeOutputUnits);
-    rangeOutputValue.value = evt.target.value;
+    rangeOutputValue.textContent = evt.target.value;
   });
 };

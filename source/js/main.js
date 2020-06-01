@@ -7,8 +7,14 @@ import configuration from '../blocks/configuration/configuration';
 
 // endregion
 
-load();
-debounce();
-declension();
-range();
-configuration();
+if (window.NodeList && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
+document.addEventListener(`DOMContentLoaded`, () => {
+  load();
+  debounce();
+  declension();
+  range();
+  configuration();
+});

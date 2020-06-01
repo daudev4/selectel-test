@@ -9,10 +9,9 @@
     var load = function load(onSuccess, onError, url, data) {
       var httpMethod = data ? "POST" : "GET";
       var xhr = new XMLHttpRequest();
-      xhr.responseType = "json";
       xhr.addEventListener("load", function () {
         if (xhr.status === HTTP_STATUS_OK) {
-          onSuccess(xhr.response);
+          onSuccess(JSON.parse(xhr.responseText));
         } else {
           onError(MESSAGE_CONNECTION_ERROR); // onError(`Статус ответа: ${xhr.status} ${xhr.statusText}`);
         }
@@ -23,8 +22,8 @@
       xhr.addEventListener("timeout", function () {
         onError("\u0417\u0430\u043F\u0440\u043E\u0441 \u043D\u0435 \u0443\u0441\u043F\u0435\u043B \u0432\u044B\u043F\u043E\u043B\u043D\u0438\u0442\u044C\u0441\u044F \u0437\u0430 ".concat(xhr.timeout, " \u043C\u0441"));
       });
-      xhr.timeout = XHR_TIMEOUT;
       xhr.open(httpMethod, url);
+      xhr.timeout = XHR_TIMEOUT;
       xhr.send(data);
     };
 
@@ -90,10 +89,10 @@
     }
 
     fillRange(rangeInput);
-    rangeInput.addEventListener("input", function (evt) {
+    rangeInput.addEventListener("change", function (evt) {
       fillRange(evt.target);
       rangeOutputUnit.textContent = window.declension(evt.target.value, rangeOutputUnits);
-      rangeOutputValue.value = evt.target.value;
+      rangeOutputValue.textContent = evt.target.value;
     });
   });
 
@@ -145,7 +144,7 @@
         var newMessage = message.cloneNode(true);
         newMessage.classList.add("configuration__message");
         newMessage.textContent = text;
-        configurationStatus.append(newMessage);
+        configurationStatus.appendChild(newMessage);
       }
     }
 
@@ -153,26 +152,26 @@
       var currentMessage = configurationStatus.querySelector(".message");
 
       if (currentMessage) {
-        currentMessage.remove();
+        currentMessage.parentNode.removeChild(currentMessage);
       }
     }
 
     function removeCards() {
       configurationGroup.querySelectorAll(".server").forEach(function (card) {
-        card.remove();
+        card.parentNode.removeChild(card);
       });
     }
 
     function renderCards(cards) {
       cards.forEach(function (card) {
         var newCard = fillCard(card);
-        serverCardsFragment.append(newCard);
+        serverCardsFragment.appendChild(newCard);
       });
-      configurationGroup.append(serverCardsFragment);
+      configurationGroup.appendChild(serverCardsFragment);
     }
 
     function calculateCores(count, amount) {
-      return Number.parseInt(count, 10) * Number.parseInt(amount, 10);
+      return parseInt(count, 10) * parseInt(amount, 10);
     }
 
     function fillCard(data) {
@@ -186,7 +185,7 @@
       server.querySelector(".server__disk-count").textContent = data.disk.count >= 2 ? "".concat(data.disk.count, " x") : null;
       server.querySelector(".server__disk-value").textContent = data.disk.value;
       server.querySelector(".server__disk-type").textContent = data.disk.type;
-      server.querySelector(".server__gpu").textContent = data.gpu;
+      server.querySelector(".server__gpu").textContent = data.gpu ? data.gpu : null;
       server.querySelector(".server__price-value").textContent = data.price / 100;
       return server;
     }
@@ -211,7 +210,7 @@
     }
 
     function checkCores(card) {
-      var rangeCoresValue = Number.parseInt(rangeCores.value, 10);
+      var rangeCoresValue = parseInt(rangeCores.value, 10);
       var cardCoresTotal = calculateCores(card.cpu.cores, card.cpu.count);
       return rangeCores.value ? rangeCoresValue === cardCoresTotal : true;
     }
@@ -231,11 +230,17 @@
 
   // region Blocks
 
-  load();
-  debounce();
-  declension();
-  range();
-  configuration();
+  if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = Array.prototype.forEach;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    load();
+    debounce();
+    declension();
+    range();
+    configuration();
+  });
 
 }());
 //# sourceMappingURL=main.js.map

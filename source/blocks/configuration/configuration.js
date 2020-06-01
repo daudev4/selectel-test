@@ -51,7 +51,7 @@ export default () => {
 
       newMessage.classList.add(`configuration__message`);
       newMessage.textContent = text;
-      configurationStatus.append(newMessage);
+      configurationStatus.appendChild(newMessage);
     }
   }
 
@@ -59,13 +59,13 @@ export default () => {
     const currentMessage = configurationStatus.querySelector(`.message`);
 
     if (currentMessage) {
-      currentMessage.remove();
+      currentMessage.parentNode.removeChild(currentMessage);
     }
   }
 
   function removeCards() {
     configurationGroup.querySelectorAll(`.server`).forEach((card) => {
-      card.remove();
+      card.parentNode.removeChild(card);
     });
   }
 
@@ -73,14 +73,14 @@ export default () => {
     cards.forEach((card) => {
       const newCard = fillCard(card);
 
-      serverCardsFragment.append(newCard);
+      serverCardsFragment.appendChild(newCard);
     });
 
-    configurationGroup.append(serverCardsFragment);
+    configurationGroup.appendChild(serverCardsFragment);
   }
 
   function calculateCores(count, amount) {
-    return Number.parseInt(count, 10) * Number.parseInt(amount, 10);
+    return parseInt(count, 10) * parseInt(amount, 10);
   }
 
   function fillCard(data) {
@@ -96,7 +96,7 @@ export default () => {
     server.querySelector(`.server__disk-count`).textContent = data.disk.count >= 2 ? `${data.disk.count} x` : null;
     server.querySelector(`.server__disk-value`).textContent = data.disk.value;
     server.querySelector(`.server__disk-type`).textContent = data.disk.type;
-    server.querySelector(`.server__gpu`).textContent = data.gpu;
+    server.querySelector(`.server__gpu`).textContent = data.gpu ? data.gpu : null;
     server.querySelector(`.server__price-value`).textContent = data.price / 100;
 
     return server;
@@ -127,7 +127,7 @@ export default () => {
   }
 
   function checkCores(card) {
-    const rangeCoresValue = Number.parseInt(rangeCores.value, 10);
+    const rangeCoresValue = parseInt(rangeCores.value, 10);
     const cardCoresTotal = calculateCores(card.cpu.cores, card.cpu.count);
 
     return rangeCores.value ? rangeCoresValue === cardCoresTotal : true;

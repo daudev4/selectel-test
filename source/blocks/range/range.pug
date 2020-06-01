@@ -13,7 +13,7 @@ mixin range(id, min, max, step, value, unit, mods)
     input.range__input(id=id type="range" min=min max=max step=step value=value)
     span.range__min= min
     p.range__output
-      output.range__output-value= value
+      span.range__output-value= value
       |
       |
       span.range__output-unit= unit
