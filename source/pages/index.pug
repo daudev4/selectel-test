@@ -23,7 +23,7 @@ html(lang="ru")
               | под&nbsp;задачи вашего проекта с возможностью
               | свободно распоряжаться ресурсами
               | машины и&nbsp;установки любого программного обеспечения.
-            a.button.button--filled.banner__button(href="https://selectel.ru/") Готовые серверы
+            a.button.button--filled.banner__button(href="https://selectel.ru/" target="_blank") Готовые серверы
           div.banner__img-container
             +picture('server', 'png', '209', '175', 'Изображение сервера').banner__img
       section.configuration
@@ -32,7 +32,7 @@ html(lang="ru")
           form.form.configuration__form(action="#" method="post")
             div.form__item.form__item--range
               label.form__item-label(for="core-amount") vCPU
-              +range('core-amount', 2, 12, 2, 6, 'ядер').formt__item-input
+              +range('core-amount', 2, 12, 2, 6, 'ядер').form__item-input
             div.form__checkbox-group
               +checkbox('checkbox-gpu', 'GPU').form__item.form__item--checkbox
               +checkbox('checkbox-raid', 'RAID').form__item.form__item--checkbox

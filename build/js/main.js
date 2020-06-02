@@ -189,7 +189,7 @@
       server.querySelector(".server__disk-value").textContent = data.disk.value;
       server.querySelector(".server__disk-type").textContent = data.disk.type;
       server.querySelector(".server__gpu").textContent = data.gpu ? data.gpu : null;
-      server.querySelector(".server__price-value").textContent = data.price / 100;
+      server.querySelector(".server__price-value").textContent = (data.price / 100).toFixed(2);
       return server;
     }
 
