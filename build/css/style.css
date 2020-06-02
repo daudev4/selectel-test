@@ -1068,9 +1068,16 @@ input[type="radio"].visually-hidden {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+@media (min-width: 768px) {
+  .server__purchase {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
 }
 .server__price {
   margin: 0;
@@ -1109,6 +1116,7 @@ input[type="radio"].visually-hidden {
 @media (min-width: 1200px) {
   .server__button {
     min-width: 76px;
+    margin-right: 20px;
   }
 }
 @-webkit-keyframes fade-in {
